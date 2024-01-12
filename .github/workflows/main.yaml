@@ -72,7 +72,7 @@ jobs:
          dockerfile: ./Dockerfile
          context: ./
   DeployToEKS:
-    needs: BUILD_AND_PUBLISH
+    needs: Build_And_Push_To_ECR
     runs-on: ubuntu-latest
     steps:
       - name: Code checkout
