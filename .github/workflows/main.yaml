@@ -50,4 +50,21 @@ jobs:
         timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_URL }} 
+          SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
+
+  Build_And_Push_To_ECR:
+    needs: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload image to ECR
+        uses: appleboy/docker-ecr-action@master
+        with:
+         access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         registry: ${{ secrets.REGISTRY }}
+         repo: ${{ env.ECR_REPOSITORY }}
+         tags: latest,${{ github.run_number }}
+         daemon_off: false
+         region: ${{ env.AWS_REGION }}
+         dockerfile: ./Dockerfile
+         context: ./      
