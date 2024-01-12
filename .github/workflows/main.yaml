@@ -66,5 +66,5 @@ jobs:
          tags: latest,${{ github.run_number }}
          daemon_off: false
          region: ${{ env.AWS_REGION }}
-         dockerfile: .Dockerfile
+         dockerfile: Dockerfile
          context: ./      
