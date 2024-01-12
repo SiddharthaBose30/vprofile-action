@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: k8s.mydevopsj.online
+  - host: project.k8s.mydevopsj.online
     http:
       paths:
       - path: /
