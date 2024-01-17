@@ -100,7 +100,9 @@ pipeline {
 
         stage('Kubernetes Deploy') {
             steps {
-              sh "helm upgrade --install --force vprofile-stack helm/vprofilecharts --set appimage=${registry},apptag=V${BUILD_NUMBER} --namespace prod"
+              sh "cd"
+              sh "cd vprofile-action"  
+              sh "helm upgrade --install --force vprofile-stack helm/mydevops-chart --set appimage=${registry},apptag=V${BUILD_NUMBER} --namespace prod"
             }
         }
     }
