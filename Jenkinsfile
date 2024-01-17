@@ -60,7 +60,7 @@ pipeline {
                    -Dsonar.projectName=mydevopsj \
                    -Dsonar.projectVersion=1.0 \
                    -Dsonar.sources=src/ \
-                   -Dsonar.organisation=devopsjourney2024 \
+                   -Dsonar.organization=devopsjourney2024 \
                    -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
                    -Dsonar.junit.reportsPath=target/surefire-reports/ \
                    -Dsonar.jacoco.reportsPath=target/jacoco.exec \
