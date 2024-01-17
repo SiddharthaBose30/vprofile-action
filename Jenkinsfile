@@ -101,6 +101,7 @@ pipeline {
         stage('Kubernetes Deploy') {
             steps {
               sh "cd"
+              sh "git clone https://github.com/SiddharthaBose30/vprofile-action.git"
               sh "cd vprofile-action"  
               sh "helm upgrade --install --force vprofile-stack helm/mydevops-chart --set appimage=${registry},apptag=V${BUILD_NUMBER} --namespace prod"
             }
