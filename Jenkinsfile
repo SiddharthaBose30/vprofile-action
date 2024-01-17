@@ -100,6 +100,7 @@ pipeline {
 
         stage('Kubernetes Deploy') {
             steps {
+              sh 'sudo -u ubuntu ls /home/ubuntu'
               sh "cd"
               sh "git clone https://github.com/SiddharthaBose30/vprofile-action.git"
               sh "cd vprofile-action"  
